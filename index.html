@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="032001203">
+        <meta name="description" content="Just a todolist">
+        <title>西二在线第三轮考核</title>
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="shortcut icon" href="resources/G.ico">
+    </head>
+    <body>
+        <div class="wrap" style="display: none;">
+            <div class="wrapbox">
+                <b>*首次使用请完善一下用户资料</b>😶<br>
+                <fieldset>
+                    <legend>*必填</legend>
+                    <form>
+                        姓名：<input type="text"><br>
+                        性别：<input type="radio" value="male" name="sex">男<input type="radio" value="female" name="sex">女<br>
+                        电话：<input type="text"><br>
+                        密码：<input type="password" autocomplete="on"><br>
+                        <button type="submit" class="handin">提交</button>
+                    </form>
+                </fieldset>
+            </div>
+            <img src="resources/close.png" class="closebt">
+        </div>
+        <div class="wrap" style="display: none;">
+            <div class="wrapbox">
+                <form>
+                    标题：<input type="text" id="head" autocomplete="off"><br>
+                    内容：<br>
+                    <textarea id="contents" rows="4" cols="45"></textarea><br>
+                    截止时间：<input type="time" autocomplete="off" id="diedtime"><br>
+                    <button type="button" class="over">完成</button>
+                    <button type="button" class="fixbt" style="display: none;">完成</button>
+                    <button type="button" class="cancel">取消</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- ! 以上为遮罩层-->
+        <nav>
+            <div class="w2logo"><a href="https://www.west2online.com/"><img src="resources/w2logo.png"></a></div>
+            <div class="actionbar">
+                <button id="addbt">新建待办</button>
+                <button id="nightmode">夜间模式</button>
+                <a href="personal_center.html"><img src="resources/default_head.png" title="个人中心"></a>
+            </div>
+        </nav>
+        <div class="calender">
+
+        </div>
+        <div class="quote">
+            <i></i>
+        </div>
+        <div class="list">
+            <div class="topList">
+            </div>
+            <div class="normalList">
+            </div>
+            <div class="endList">
+            </div>
+        </div>
+        <script src="scripts/main.js"></script>
+    </body>
+</html>
