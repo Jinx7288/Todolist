@@ -77,13 +77,13 @@ function markFinishedToggle(sec) {
     let isTop=item.getAttribute("topToggle");
     let isFin=item.getAttribute("fToggle");
     if (isTop=="on"&&isFin=="on") {
-        item.style.backgroundColor="rgb(255,0,0,0.5)";
+        item.style.backgroundColor="rgb(255,0,0,0.9)";
         item.getElementsByTagName("img")[1].style.display="none";
         item.getElementsByTagName("img")[0].style.display="block";
         item.getElementsByClassName("finish")[0].textContent="完成";
         item.getElementsByClassName("ontop")[0].style.display="inline-block";
         item.setAttribute("fToggle","off");
-        document.querySelector(".normalList").prepend(item);
+        document.querySelector(".topList").prepend(item);
     }   
     if(isTop=="on"&&isFin=="off") {
         item.style.backgroundColor="rgba(213,255,255,1)";
@@ -171,7 +171,7 @@ function analyseInput() {
     let intime = renderDate();
     let yearnow=intime.slice(0,4);
     let monthnow=intime.slice(4);
-    let datefix = new Date(yearnow,monthnow-1,"01");
+    let datefix = new Date(monthnow==1 ? yearnow-1:yearnow,monthnow==1 ? 12:monthnow,"01");
     let daynow=datefix.getDay();
     let getri=new Date(yearnow,monthnow,"0");
     let count=getri.getDate();
