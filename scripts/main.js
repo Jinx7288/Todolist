@@ -149,12 +149,6 @@ function addZero(check) {
     }
     return check;
 }
-function renderDate() {
-    let date=new Date();
-    let year=date.getFullYear();
-    let month=addZero(date.getMonth()+1);
-    return String(year)+String(month);
-}
 
 function createFrame() {
     let table=document.createElement("table");
@@ -168,10 +162,10 @@ function createFrame() {
     }
 }
 function analyseInput() {
-    let intime = renderDate();
-    let yearnow=intime.slice(0,4);
-    let monthnow=intime.slice(4);
-    let datefix = new Date(monthnow==1 ? yearnow-1:yearnow,monthnow==1 ? 12:monthnow,"01");
+    let date=new Date();
+    let yearnow=String(date.getFullYear());
+    let monthnow=String(date.getMonth());
+    let datefix = new Date(yearnow,monthnow,"1");
     let daynow=datefix.getDay();
     let getri=new Date(yearnow,monthnow,"0");
     let count=getri.getDate();
@@ -207,7 +201,7 @@ function writeIn(list) {
 function markToday() {
     let date=new Date();
     let day=date.getDate();
-    document.querySelectorAll("td")[day+1].style.backgroundColor="red";
+    document.querySelectorAll("td")[analyseInput()[0]+day-1].style.backgroundColor="red";
 }
 function missile() {
     createFrame();
