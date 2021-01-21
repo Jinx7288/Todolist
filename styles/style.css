@@ -32,8 +32,8 @@ img[title="个人中心"] {
 }
 .actionbar {
     position: relative;
-    left: 73vw;
-    top: 0px;
+    float: right;
+    top: 14px;
 }
 .actionbar a {
     vertical-align: middle;
@@ -188,4 +188,12 @@ textarea:focus {
 }
 .gostudy p {
     font-size:larger;
+}
+#moredelete,#cancelselectmore {
+    display: none;
+}
+input[type="checkbox"] {
+    display: none;
+    width:20px;
+    height:20px;
 }

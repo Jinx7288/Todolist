@@ -31,10 +31,11 @@ function goStudy() {
 function addItem() {
     if (document.querySelector(".gostudy")) { document.querySelector(".gostudy").remove();}
     document.querySelector(".normalList").insertAdjacentHTML("afterbegin",`
-        <div class="fund rank`+rank+`" fToggle="off" topToggle="off">
+        <div class="fund rank`+rank+`" fToggle="off" topToggle="off" data-selected="off">
             <img src="resources/ontop.png">
             <img src="resources/finished.png">
             <div>
+                <input type="checkbox" value=`+rank+`>
                 <h2>`+document.querySelector("#head").value+`</h2>
                 <p>`+document.querySelector("#contents").value+`</p><br>
                 <p>`+document.querySelector("#diedtime").value+`</p>
@@ -212,7 +213,12 @@ function missile() {
 document.getElementById("addbt").addEventListener("click",toggleForm);
 document.querySelector(".over").addEventListener("click",addItem);
 document.querySelector(".fixbt").addEventListener("click",modifyItem);
-document.querySelector(".cancel").addEventListener("click",toggleForm);
+document.querySelector(".cancel").addEventListener("click",function() {
+    toggleForm();
+    document.querySelector("#head").value="";
+    document.querySelector("#contents").value="";
+    document.querySelector("#diedtime").value="";
+} ); 
 document.querySelector("#nightmode").addEventListener("click",nightModeToggle);
 document.querySelector("body").addEventListener("scroll",function() {
     document.querySelector(".calender").style.top=document.querySelector(".list").scrollTop;
@@ -242,4 +248,44 @@ function showQuote(quotes) {
     },3000) 
 }
 
+//! 多选移除功能
+
+function toggleSelectmore() {
+    let checkboxes=document.querySelectorAll("input[type=checkbox]");
+    let bottombars=document.querySelectorAll("div.bottombar");
+    let oribt=document.querySelectorAll(".oribt");
+    let hiddenbt=document.querySelectorAll(".hiddenbt");
+    oribt[0].style.display=oribt[0].style.display=="none"? "inline":"none";
+    oribt[1].style.display=oribt[1].style.display=="none"? "inline":"none";
+    oribt[2].style.display=oribt[2].style.display=="none"? "inline":"none";
+    hiddenbt[0].style.display=hiddenbt[0].style.display=="inline"? "none":"inline";
+    hiddenbt[1].style.display=hiddenbt[1].style.display=="inline"? "none":"inline";
+    if(oribt[0].style.display=="none") {
+        checkboxes.forEach(function(item){
+            item.style.display="inline";
+        });
+        bottombars.forEach(function(item) {
+            item.style.display="none";
+        })
+    } else {
+        checkboxes.forEach(function(item) {
+            item.style.display="none";
+        });
+        bottombars.forEach(function(item) {
+            item.style.display="inline";
+        })
+    }
+}
+document.querySelector("#selectmore").addEventListener("click",toggleSelectmore);
+document.querySelector("#cancelselectmore").addEventListener("click",function() {
+    toggleSelectmore();
+    let checkboxes=document.querySelectorAll("input[type=checkbox]");
+    checkboxes.forEach(function(item) { item.checked=false;});
+} );
+document.querySelector("#moredelete").addEventListener("click",function() {
+    let checkboxes=document.querySelectorAll("input[type=checkbox]");
+    checkboxes.forEach(function(item) { if(item.checked==true) {
+        document.querySelector(".rank"+item.value).remove();
+    }});
+});
 

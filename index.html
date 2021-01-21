@@ -30,7 +30,7 @@
                 <form>
                     标题：<input type="text" id="head" autocomplete="off"><br>
                     内容：<br>
-                    <textarea id="contents" rows="4" cols="45"></textarea><br>
+                    <textarea id="contents" rows="2" cols="50"></textarea><br>
                     截止时间：<input type="time" autocomplete="off" id="diedtime"><br>
                     <button type="button" class="over">完成</button>
                     <button type="button" class="fixbt" style="display: none;">完成</button>
@@ -43,9 +43,12 @@
         <nav>
             <div class="w2logo"><a href="https://www.west2online.com/"><img src="resources/w2logo.png"></a></div>
             <div class="actionbar">
-                <button id="addbt">新建待办</button>
-                <button id="nightmode">夜间模式</button>
-                <a href="personal_center.html"><img src="resources/default_head.png" title="个人中心"></a>
+                    <button id="addbt" class="oribt">新建待办</button>
+                    <button id="selectmore" class="oribt">多选移除</button>
+                    <button id="nightmode" class="oribt">夜间模式</button>
+                    <button id="moredelete" class="hiddenbt">移除选中</button>  
+                    <button id="cancelselectmore" class="hiddenbt">取消多选</button>  
+                <!-- <a href="personal_center.html"><img src="resources/default_head.png" title="个人中心"></a> -->
             </div>
         </nav>
         <div class="calender">
