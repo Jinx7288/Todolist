@@ -218,6 +218,10 @@ document.querySelector(".cancel").addEventListener("click",function() {
     document.querySelector("#head").value="";
     document.querySelector("#contents").value="";
     document.querySelector("#diedtime").value="";
+    if(document.querySelector("span")) {  
+        document.querySelector(".over").style.display="inline-block";
+        document.querySelector(".fixbt").style.display="none";
+        document.querySelector("span").remove();};
 } ); 
 document.querySelector("#nightmode").addEventListener("click",nightModeToggle);
 document.querySelector("body").addEventListener("scroll",function() {
