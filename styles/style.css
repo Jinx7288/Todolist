@@ -189,7 +189,7 @@ textarea:focus {
 .gostudy p {
     font-size:larger;
 }
-#moredelete,#cancelselectmore {
+#moredelete,#cancelselectmore,#selectall {
     display: none;
 }
 input[type="checkbox"] {

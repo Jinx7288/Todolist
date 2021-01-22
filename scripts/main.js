@@ -264,6 +264,7 @@ function toggleSelectmore() {
     oribt[2].style.display=oribt[2].style.display=="none"? "inline":"none";
     hiddenbt[0].style.display=hiddenbt[0].style.display=="inline"? "none":"inline";
     hiddenbt[1].style.display=hiddenbt[1].style.display=="inline"? "none":"inline";
+    hiddenbt[2].style.display=hiddenbt[2].style.display=="inline"? "none":"inline";
     if(oribt[0].style.display=="none") {
         checkboxes.forEach(function(item){
             item.style.display="inline";
@@ -291,5 +292,10 @@ document.querySelector("#moredelete").addEventListener("click",function() {
     checkboxes.forEach(function(item) { if(item.checked==true) {
         document.querySelector(".rank"+item.value).remove();
     }});
+    goStudy();
+    toggleSelectmore();
 });
-
+document.querySelector("#selectall").addEventListener("click",function() {
+    let checkboxes=document.querySelectorAll("input[type=checkbox]");
+    checkboxes.forEach(function(item) { item.click();});
+})
