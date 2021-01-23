@@ -297,5 +297,12 @@ document.querySelector("#moredelete").addEventListener("click",function() {
 });
 document.querySelector("#selectall").addEventListener("click",function() {
     let checkboxes=document.querySelectorAll("input[type=checkbox]");
-    checkboxes.forEach(function(item) { item.click();});
+    if(document.querySelector("#selectall").textContent=="全选") {
+        checkboxes.forEach(function(item) {  if(item.checked==false)  { item.click();}});
+        document.querySelector("#selectall").textContent="全不选";
+    } else {
+        checkboxes.forEach(function(item) {  if(item.checked==true)  { item.click();}});
+        document.querySelector("#selectall").textContent="全选";
+    }
+    
 })
